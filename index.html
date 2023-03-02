@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var long = 0
+        var lat = 0
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+        function successCallback(position) {
+            console.log(position);
+            long = position.coords.longitude
+            lat = position.coords.latitude
+            var accesskey = "8acb955e79c9db2d55adfb9a2b889445"
+            var url = "https://api.positionstack.com/reverse/?access_key=" + accesskey + "&query=" + lat + "," + long
+            console.log(url);
+        }
+        function errorCallback(error) {
+            console.log(error);
+        }
+
+    </script>
+</body>
+
+</html>
